@@ -530,7 +530,6 @@ function flyItemCartAndAddCart()
         var showTotalPrice = $(document).find(".show-total-price");
         //header__nav-cart-info
         var headerCart = $(document).find(".header__nav-cart-info");
-        console.log(headerCart);
         var countIn; // bien dem gio hang;
         var cartList = $(document).find(".web-cart-show");
         var nameProduct  = parent.find('.our__product-item-text').text();
@@ -566,7 +565,7 @@ function flyItemCartAndAddCart()
                         <div class="price-item-cart">
                         <span class="price-item-cart-detail">${priceProuct}</span><span>đ</span>
                         </div>
-                        <button>
+                        <button class="price-item-cart-btn">
                             Xóa
                         </button>
                      </li>`;
