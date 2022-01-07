@@ -1,4 +1,4 @@
-var itemVegetables = [
+const itemVegetables = [
     {
         img:'./assets/img/mangtay1.png',
         name: 'Măng tây xanh',
@@ -49,7 +49,7 @@ var itemVegetables = [
     },
 
 ]
-var itemMeat = [
+const itemMeats = [
     {
         img:'./assets/img/tomthetuoi.jpg',
         name: 'Tôm thẻ tươi 80-100 con/kg',
@@ -99,3 +99,13 @@ var itemMeat = [
         price : '80.000',
     },
 ]
+const backgroundBody = [
+    "url('./assets/img/vegetable1.png')",
+    "url('./assets/img/vegetable4.png')",
+    "url('./assets/img/vegetable3.png')"
+];
+export {
+    itemVegetables,
+    itemMeats,
+    backgroundBody,
+}

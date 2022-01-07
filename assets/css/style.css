@@ -15,7 +15,7 @@ body
     border-radius: 100%;
     border: 1px solid var(--primary-color);
     transition: all 1s ease;
-    animation: scale 2s;
+    animation: scale 1.5s;
     z-index: 9999999999;
 }
 @keyframes scale {
@@ -464,14 +464,7 @@ body
 {
     width: 30px;
     float: right;
-}
-.header__nav-cart:hover .header__nav-cart-info
-{
-    display: block;
-}
-.header__nav-cart:hover .bridge-cart
-{
-    display: block;
+    cursor: pointer;
 }
 .header__nav-cart-item
 {
@@ -1062,7 +1055,7 @@ body
 {
     position: relative;
     height: 434px;
-    background-image:url('/assets/img/vegetable1.png');
+    background-image:url('../img/vegetable1.png');
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
@@ -1142,6 +1135,7 @@ body
     color: #fff;
     margin-right: 16px;
     opacity: 0.6;
+    cursor: pointer;
 }
 .icon-tab-active:hover
 {
@@ -1435,6 +1429,7 @@ body
 }
 .price-item-cart-btn
 {
+    cursor: pointer;
     background-color:var(--primary-color);
     color: #fff;
     outline: none;

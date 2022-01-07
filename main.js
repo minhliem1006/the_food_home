@@ -1,220 +1,160 @@
-const link = document.querySelector.bind(document);
+import {itemVegetables,itemMeats,backgroundBody} from "./data.js";
+const $=document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-var dataUser = [];
-var itemVegetables = [
+const dataUser = [
     {
-        img:'./assets/img/mangtay1.png',
-        name: 'Măng tây xanh',
-        priceLow : '37.000',
-        price : '48.000',
+        email : 'minhliem10061@gmail.com',
+        password:'111111',
     },
-    {
-        img:'./assets/img/duahau.jpg',
-        name: 'Dưa hấu đỏ không hạt',
-        priceLow : '30.000',
-        price : '47.000',
-    },
-    {
-        img:'./assets/img/taoxanh.jpg',
-        name: 'Táo xanh New Zealand',
-        priceLow : '39.000',
-        price : '42.000',
-    },
-    {
-        img:'./assets/img/hungbacha___.jpg',
-        name: 'Húng bạc hà',
-        priceLow : '10.800',
-        price : '11.700',
-    },
-    {
-        img:'./assets/img/raumuong___.jpg',
-        name: 'Rau muống',
-        priceLow : '11.000',
-        price : '18.000',
-    },
-    {
-        img:'./assets/img/rauday_vineco.jpg',
-        name: 'Rau đay L1 Vineco',
-        priceLow : '26.200',
-        price : '',
-    },
-    {
-        img:'./assets/img/oile___.jpg',
-        name: 'Ổi lê',
-        priceLow : '20.000',
-        price : '',
-    },
-    {
-        img:'./assets/img/hongxiemsapo.jpg',
-        name: 'Hồng xiêm (Sapo)',
-        priceLow : '75.000',
-        price : '80.000',
-    },
-
-]
-var itemMeats = [
-    {
-        img:'./assets/img/tomthetuoi.jpg',
-        name: 'Tôm thẻ tươi 80-100 con/kg',
-        priceLow : '92.000',
-        price : '99.000',
-    },
-    {
-        img:'./assets/img/nhongtam.jpg',
-        name: 'Nhộng tằm',
-        priceLow : '51.000',
-        price : '',
-    },
-    {
-        img:'./assets/img/thitbe.jpg',
-        name: 'Thịt bê',
-        priceLow : '69.000',
-        price : '',
-    },
-    {
-        img:'./assets/img/thanbo.jpg',
-        name: 'Thăn bò',
-        priceLow : '100.000',
-        price : '',
-    },
-    {
-        img:'./assets/img/ganga.jpg',
-        name: 'Gan gà',
-        priceLow : '29.000',
-        price : '',
-    },
-    {
-        img:'./assets/img/ucgacongnghiep.jpg',
-        name: 'Ức gà công nghiệp',
-        priceLow : '87.500',
-        price : '',
-    },
-    {
-        img:'./assets/img/bachtuottuoi.jpg',
-        name: 'Bạch tuột tươi',
-        priceLow : '79.500',
-        price : '',
-    },
-    {
-        img:'./assets/img/cahoifillet.jpg',
-        name: 'Cá hồi fillet HRC',
-        priceLow : '75.000',
-        price : '80.000',
-    },
-]
-var dataBackgroundImageBody = [
-    "url('/assets/img/vegetable1.png')",
-    "url('/assets/img/vegetable4.png')",
-    "url('/assets/img/vegetable3.png')"
 ];
-// header_login
-var btnLogin=link('.btn-login');
-var btnLogout=link('.btn-logout');
-var headerAccoutLists=$$('.header__account-list');
-var nameUserLogin =link('.name__user-login');
-// regester
-var switchBtnLogin = link('.register .auth-form__swtich-btn');
-var btnRegester=link('.btn-regester');
-var overlay  = link('.overlay');
-var regesterComeback = $$('.auth-form__controls-back');
-var inputForms = $$('.auth-form__input');
-var confirmDataFormRegister = link('.register .btn-confirm');
-var inputEmailRegister = link('input[name="email_register"]');
-var inputPasswordRegister = link('input[name="password_register"]');
-var reInputPasswordRegister= link('input[name="reinputpassword"]');
-// login
-var switchBtnRegister=link('.login .auth-form__swtich-btn');
-var login =link('.login');
-var register = link('.register');
-var loginBtn = link('.login .btn-confirm');
-var valueLoginEmail = link('input[name="email_login"]');
-var valueloginPassWord = link('input[name="password_login"]');
-// resolve line header
-var itemLines = $$('.header__nav-item');
-var line= link('.line');
-// ---------------------------------------
-// handle body background image
-var bodyHeader=link('.body__header')
-var bodyHeaderNextBtn=link('.body__header-next-btn');
-var bodyHeaderPrevBtn=link('.body__header-prev-btn');
-// handle product food
-var ourProductFoods = $$('.our-product-food');
-var ourProducts = $$('.our__product-container');
-// resolve img__body-one
-var imgBodyInfomations = $$('.img__body-infomation');
-var iconTabActives = $$('.icon-tab-active');
-//produc item
-var productVegetable = link('.product-vegetable');
-var productMeat = link('.product-meat');
-// header_login ---------------------------------
-function handleHeaderLogin()
-{
-    btnLogin.onclick = function()
-{
-    overlay.style.display = 'block';
-    register.style.display='none';
-    login.style.display='block';
-    valueLoginEmail.value='';
-    valueloginPassWord.value=''; 
-  
-}
+//change background
+const bodyHeaderBG = $(".body__header");
+const nextBG = $(".body__header-next-btn");
+const prevBG = $(".body__header-prev-btn");
+// lineHeader
+const itemLines = $$(".header__nav-item");
+const line= $(".line");
 
-// header_out
-btnLogout.onclick = function()
-{
+//handle register and login
+//show modal
+const overlay  = $(".overlay");
+const btnRegester=$(".btn-regester");
+//register
+const register = $(".register");
+const tranLoginBtn = $(".tran-login");
+const submitResgister = $(".btn-submit-register");
+const inputEmailRegister = $('input[name="email_register"]');
+const inputPasswordRegister = $('input[name="password_register"]');
+const reInputPasswordRegister= $('input[name="reinputpassword"]');
+//login
+const headerAccoutLists=$$('.header__account-list');
+const nameUserLogin =$$('.name__user-login');
+const btnLogin= $(".btn-login");
+const login =$(".login");
+const tranRegister = $(".tran-regist");
+const btnComeback = $$(".auth-form__controls-back");
+const submitLogin = $(".btn-submit-login");
+const valueLoginEmail = $('input[name="email_login"]');
+const valueloginPassWord = $('input[name="password_login"]');
+//logout
+const btnLogout  = $(".btn-logout");
+//render vegetable
+const productVegetable = $(".product-vegetable");
+const productMeat = $(".product-meat")
+const btnMeat = $(".meat-food");
+const btnVegetable = $(".vegetable-food");
+const isVegetable = $(".show-vegetable");
+const isMeat= $(".show-meat");
+//tab icon body
+const tabIcons = $$(".icon-tab-active");
+const imgBodyInfomations = $$('.img__body-infomation');
+//fly 
+const productBody = $(".body__product"); // relative so voi body
+const body = $("body");
+let takeHeight =0;
+// cart
+const cart = $(".header__nav-cart"); 
+const count = $(".header__nav-cart-text");
+const cartList = $(".web-cart-show");
+const showTotalPrice = $(".show-total-price");
+// handle logic show cart
+const seenterCart = $(".header__nav-cart-info");
 
-    $('.header__account-list.active').classList.remove('active');
-    $('.header__account-list').classList.add('active'); 
-}
-// switch-formlogin
-switchBtnRegister.onclick = function()
-{
-    let r = confirm("Chọn Cancel để tiếp tục và OK để thoát");
-        if(r == true )
-        {
-            register.style.display='block';
-            login.style.display='none';
-        }
-}
-switchBtnLogin.onclick= function()
-{
-    let r = confirm("Chọn Cancel để tiếp tục và OK để thoát");
-        if(r == true )
-        {
-            register.style.display='none';
-            login.style.display='block';
-        }
-}  
-// regester
-btnRegester.onclick = function()
-{
-    overlay.style.display = 'block';
-    register.style.display='block';
-    login.style.display='none';
-   
-}
-regesterComeback.forEach(comback => {
-    comback.onclick = function()
-    {
-    
-        let r = confirm("Chọn Cancel để tiếp tục và OK để thoát");
-        if(r == true )
-        {
-            overlay.style.display = 'none';
-        }
-        inputForms.forEach(inputForm => {
-            inputForm.value = '';
+const app = {
+    indexBG : 0,
+    handleChangeBG(){
+        bodyHeaderBG.style.backgroundImage = backgroundBody[this.indexBG];
+        nextBG.addEventListener('click', ()=>{
+            this.indexBG++;
+            if(this.indexBG>backgroundBody.length-1)
+            {
+                this.indexBG=0;
+            }
+            bodyHeaderBG.style.backgroundImage = backgroundBody[this.indexBG];
         });
+        prevBG.addEventListener('click', ()=>{
+            this.indexBG--;
+            if(this.indexBG<0)
+            {
+                this.indexBG=backgroundBody.length-1;
+            }
+            bodyHeaderBG.style.backgroundImage = backgroundBody[this.indexBG];
+        });
+    },
+    lineHeader(){
+        itemLines.forEach(item => {
+            item.addEventListener('mouseenter',function(e){
+                line.style.left = this.offsetLeft + 'px';
+                line.style.width = this.offsetWidth + 'px';
+            });
+            item.addEventListener('mouseleave',function(e){
+                line.style.width = 0;
+            });
+        });
+    },
+    handleTabIcon(){
+        tabIcons.forEach((tab,index)=>{
+            tab.addEventListener('click',function(e){
+                const tabActive= $(".icon-tab-active.active");
+                tabActive.classList.remove("active");
+                this.classList.add("active");
+                $('.img__body-infomation.active').classList.remove('active');
+                let imgBodyInfomation = imgBodyInfomations[index];
+                imgBodyInfomation.classList.add('active');
+            })
+        })
+
     }
-});
-}
-// get user from form Register;
-function getDataUserFromRegister()
-{
+    ,
+    handleShow(){
+        //show and off modal
+        overlay.addEventListener('click',function(e){
+            const resgistCheck = e.target.closest(".register");
+            const loginCheck = e.target.closest(".login");
+            if(resgistCheck){
+                return false;
+            }
+            if(loginCheck){
+                return false;
+            }
+            overlay.style.display = "none";
+            register.style.display="none";
+            login.style.display="none";
+
+        })
+        //register
+        btnRegester.addEventListener('click',function(){
+            console.log("register")
+            overlay.style.display = "block";
+            register.style.display="block";
+        });
+        btnLogin.addEventListener('click',function(){
+            console.log("login")
+            overlay.style.display = "block";
+            login.style.display="block";
+        });
+        tranLoginBtn.addEventListener('click',function(){
+            register.style.display="none";
+            login.style.display="block";
+        }); 
+        tranRegister.addEventListener('click',function(){
+            login.style.display="none";
+            register.style.display="block";
+        });
+        btnComeback.forEach(function(ele){
+            ele.addEventListener('click',function(){
+                login.style.display="none";
+                overlay.style.display = "none";
+                register.style.display="none";
+            });
+        });
+       
+    },
+    handleResAndLog(){
         function checkEmail()
         {
             
-                var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                const filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                 if (!filter.test(inputEmailRegister.value)) {
                 alert('Hay nhap dia chi email hop le.\nExample@gmail.com');
                 inputEmailRegister.focus;
@@ -245,377 +185,323 @@ function getDataUserFromRegister()
                 }
                 
         }
-       function checkPassword()
-       {
-            if(inputPasswordRegister.value.length >=6)
+        function checkPassword()
+        {
+             if(inputPasswordRegister.value.length >=6)
+             {
+                 return true;
+             }
+             else
+             {
+                 alert('Password phải có từ 6 kí tự trở lên');
+                 return false;
+             }
+        }
+        function checkRePassword()
+        {
+            if(reInputPasswordRegister.value === inputPasswordRegister.value)
             {
                 return true;
             }
             else
             {
-                alert('Password phải có từ 6 kí tự trở lên');
+                alert('Password nhập lại không đúng');
                 return false;
             }
-       }
-       function checkRePassword()
-       {
-           if(reInputPasswordRegister.value === inputPasswordRegister.value)
-           {
-               return true;
-           }
-           else
-           {
-               alert('Password nhập lại không đúng');
-               return false;
-           }
-       }   
-    confirmDataFormRegister.onclick = function()
-    {
-
-       if(checkEmail()&&checkPassword()&&checkRePassword()&&checkEmailHaved())
-       {
-            var user = {
-                email : inputEmailRegister.value,
-                password:inputPasswordRegister.value
-            }
-            dataUser.push(user);
-            overlay.style.display='none';
-            alert('Đăng kí thành công!');
-            inputEmailRegister.value='';
-            inputPasswordRegister.value='';
-            reInputPasswordRegister.value='';
-            return dataUser;
-       }
-    }
-}
-// handle login from form login
-function handleLoginUserData()
-{
-    
-    loginBtn.onclick = function()
-    {   var check=0;
-        dataUser.forEach(user =>
-            {
-                if(user.email === valueLoginEmail.value && user.password ===valueloginPassWord.value)
+        }   
+        submitResgister.addEventListener('click',function(){
+            console.log("submit register");
+            if(checkEmail()&&checkPassword()&&checkRePassword()&&checkEmailHaved())
                 {
-                    check++;
-                    headerAccoutLists.forEach(headerAccoutList =>
-                        {
-                            headerAccoutList.classList.remove('active');
-                        })
-                    nameUserLogin.innerHTML= valueLoginEmail.value;
-                    headerAccoutLists[1].classList.add('active');
-                    overlay.style.display='none';
-                    alert('đăng nhập thành công');  
-                  
-                }        
-            });
-        if(check===0)
-        {
-            alert('Thông tin đăng nhập không đúng');
-        }
-    }  
-}
-// xử lí line header
-function lineHeader()
-{
-    itemLines.forEach(itemLine =>
-        {
-            itemLine.onmouseenter=function()
-            {
-                line.style.left = this.offsetLeft + 'px';
-                line.style.width = this.offsetWidth + 'px';
-            }
-            itemLine.onmouseleave=function()	
-            {
-                line.style.width = 0;
-           
-            }
+                        let user = {
+                            email : inputEmailRegister.value,
+                            password:inputPasswordRegister.value
+                        }
+                        dataUser.push(user);
+                        overlay.style.display='none';
+                        alert('Đăng kí thành công!');
+                        inputEmailRegister.value='';
+                        inputPasswordRegister.value='';
+                        reInputPasswordRegister.value='';
+                        return dataUser;
+                }
         });
-}
-// xử lí background image body
-function handleBackgroundImage()
-{
-    let index = 0;
-    bodyHeader.style.backgroundImage = dataBackgroundImageBody[index];
-    bodyHeaderNextBtn.onclick = function()
-        {
-            index++;
-            if(index>=dataBackgroundImageBody.length)
-            {
-                index=0;
-            }
-            bodyHeader.style.backgroundImage = dataBackgroundImageBody[index];
-            bodyHeader.style.animation='headerNotifyGrowth ease 0.3s';
-        }
-    bodyHeaderPrevBtn.onclick = function()
-        {
-            index--;
-            if(index<0)
-            {
-                index=dataBackgroundImageBody.length-1;
-            }
-            bodyHeader.style.backgroundImage = dataBackgroundImageBody[index];
-        } 
-}
-function handleTime()
-{
-        // resolve time clock
-    var day = link('.day');
-    var hours=link('.hours');
-    var mins= link('.mins');
-    var secs=link('.secs ');
-    day.innerHTML = Math.floor(Math.random()*365);
-    hours.innerHTML = Math.floor(Math.random()*24);
-    mins.innerHTML=Math.floor(Math.random()*60);
-    secs.innerHTML=Math.floor(Math.random()*60);
-    var checkSecs = Number(secs.innerHTML);
-    var checkMins = Number(mins.innerHTML);
-    var checkHours = Number(hours.innerHTML);
-    var checkDay = Number(day.innerHTML);
-    setInterval(() => {
-        checkSecs--;
-        if(checkSecs<0)
-        {
-            checkSecs=59;
-            checkMins--;
-            if(checkMins<0)
-            {
-                checkMins=59;
-                checkHours--;
-                if(checkHours<0)
-                {
-                    checkHours = 23;
-                    checkDay--;
-                    if(checkDay<0)
+        submitLogin.addEventListener('click',function(){
+                console.log("submit login");
+                let check=0;
+                dataUser.forEach(user =>
                     {
-                        checkDay=365;
+                        if(user.email === valueLoginEmail.value && user.password ===valueloginPassWord.value)
+                        {
+                            check++;
+                            headerAccoutLists.forEach(headerAccoutList =>
+                                {
+                                    headerAccoutList.classList.remove('active');
+                                })
+                            nameUserLogin.innerHTML= valueLoginEmail.value;
+                            headerAccoutLists[1].classList.add('active');
+                            overlay.style.display='none';
+                            alert('đăng nhập thành công');  
+                        
+                        }        
+                    });
+                if(check===0)
+                {
+                    alert('Thông tin đăng nhập không đúng');
+                }
+            });
+            btnLogout.addEventListener('click',function(){
+                console.log("logout");
+                $('.header__account-list.active').classList.remove('active');
+                $('.header__account-list').classList.add('active'); 
+            });
+        
+    },
+    handleTime(){
+        const day = $('.day');
+        const hours=$('.hours');
+        const mins= $('.mins');
+        const secs=$('.secs ');
+        day.innerHTML = Math.floor(Math.random()*365);
+        hours.innerHTML = Math.floor(Math.random()*24);
+        mins.innerHTML=Math.floor(Math.random()*60);
+        secs.innerHTML=Math.floor(Math.random()*60);
+        let checkSecs = Number(secs.innerHTML);
+        let checkMins = Number(mins.innerHTML);
+        let checkHours = Number(hours.innerHTML);
+        let checkDay = Number(day.innerHTML);
+        setInterval(() => {
+            checkSecs--;
+            if(checkSecs<0)
+            {
+                checkSecs=59;
+                checkMins--;
+                if(checkMins<0)
+                {
+                    checkMins=59;
+                    checkHours--;
+                    if(checkHours<0)
+                    {
+                        checkHours = 23;
+                        checkDay--;
+                        if(checkDay<0)
+                        {
+                            checkDay=365;
+                        }
                     }
                 }
+        
             }
-    
-        }
-        day.innerHTML = checkDay;
-        hours.innerHTML = checkHours;
-        mins.innerHTML= checkMins;
-        secs.innerHTML= checkSecs; 
-    }, 1000);
-}
-function handleChooseFood()
-{
-    ourProductFoods.forEach((ourProductFood,index) =>{
-        ourProductFood.onclick = function ()
-        {
-            ourProduct = ourProducts[index];
-            link('.our-product-food.active').classList.remove('active');
-            link('.our__product-container.active').classList.remove('active');
-            ourProduct.classList.add('active');
-            this.classList.add('active');
-        }
-    });
-}
-function handleBodyImfomation()
-{
-    iconTabActives.forEach((iconTabActive,index) => {
-        
-        iconTabActive.onclick = function()
-        {
-            imgBodyInfomation= imgBodyInfomations[index];
-            link('.img__body-infomation.active').classList.remove('active');
-            link('.icon-tab-active.active').classList.remove('active');
-            imgBodyInfomation.classList.add('active');
-            this.classList.add('active');
-        }
-    });
-    imgBodyInfomations.forEach((imgBodyInfomation,index) => {
-        
-        imgBodyInfomation.drop = function()
-        {
-            console.log('123');
-        }
-    });
-}
-function renderVegetabe()
-{
-    var html = itemVegetables.map(function(vegetable,index){
-        return `
-        <div class="col l-3 m-6 c-12">
-            <div class="our__product-item">
-                <a href="#" class="our__product-item-link">
-                    <div class="our__product-img-background"><img src="${vegetable.img}" alt="" class="our__product-item-img"></div>
-                    <p class="our__product-item-text">${vegetable.name}</p>
-                    <div class="our__product-item-price">
-                        <p class="our__product-item-price-1"><span class="our__product-item-price-main">${vegetable.priceLow}</span><span>đ</span></p>
-                        <p class="our__product-item-price-1">${vegetable.price ===''? '' : vegetable.price  + '<span>đ</span>'}</p>
+            day.innerHTML = checkDay;
+            hours.innerHTML = checkHours;
+            mins.innerHTML= checkMins;
+            secs.innerHTML= checkSecs; 
+        }, 1000);
+    },
+    renderItems(items,root){
+        let html = items.map(function(item){
+            const {img,name,priceLow,price} = item
+            return `
+            <div class="col l-3 m-6 c-12">
+                <div class="our__product-item">
+                    <a href="#" class="our__product-item-link">
+                        <div class="our__product-img-background"><img src="${img}" alt="" class="our__product-item-img"></div>
+                        <p class="our__product-item-text">${name}</p>
+                        <div class="our__product-item-price">
+                            <p class="our__product-item-price-1"><span class="our__product-item-price-main">${priceLow}</span><span>đ</span></p>
+                            <p class="our__product-item-price-1"><span class="our__product-item-price-low">${price ===''? '' : price  + '</span><span>đ</span>'}</p>
+                        </div>
+                    </a>
+                    <div class="our__product-overlay-container">
+                            <div class="our__product-overlay-star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="our__product-overlay-icon">
+                                <a href="#" class="our__product-overlay-link"><i class="our__product-icon far fa-eye"></i></a>
+                                <a href="#" class="our__product-overlay-link"><i class="our__product-icon fas fa-cart-plus"></i></a>
+                                <a href="#" class="our__product-overlay-link"><i class="our__product-icon fas fa-sync-alt"></i></a>
+                            </div>
+                            <div class="our__product-overlay-add">
+                                <div class="our__product-overlay-add-icon"><i class="fas fa-cart-arrow-down"></i></div>
+                                <p class="our__product-overlay-add-text">ADD TO CART</p>
+                            </div> 
                     </div>
-                </a>
-                <div class="our__product-overlay-container">
-                        <div class="our__product-overlay-star">
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <div class="our__product-overlay-icon">
-                            <a href="#" class="our__product-overlay-link"><i class="our__product-icon far fa-eye"></i></a>
-                            <a href="#" class="our__product-overlay-link"><i class="our__product-icon fas fa-cart-plus"></i></a>
-                            <a href="#" class="our__product-overlay-link"><i class="our__product-icon fas fa-sync-alt"></i></a>
-                        </div>
-                        <a href="#" class="our__product-overlay-add">
-                            <div class="our__product-overlay-add-icon"><i class="fas fa-cart-arrow-down"></i></div>
-                            <p class="our__product-overlay-add-text">ADD TO CART</p>
-                        </a> 
                 </div>
-            </div>
-         </div>
-        `
-    });
-    productVegetable.innerHTML = html.join(' ');
-}
-function renderMeat()
-{
-    var html = itemMeats.map(function(meat,index){
-        return `
-        <div class="col l-3 m-6 c-12">
-            <div class="our__product-item">
-                <a href="#" class="our__product-item-link">
-                    <div class="our__product-img-background"><img src="${meat.img}" alt="" class="our__product-item-img"></div>
-                    <p class="our__product-item-text">${meat.name}</p>
-                    <div class="our__product-item-price">
-                        <p class="our__product-item-price-1"><span class="our__product-item-price-main">${meat.priceLow}</span><span>đ</span></p>
-                        <p class="our__product-item-price-1">${meat.price ===''? '' : meat.price + '<span>đ</span>'}</p>
-                    </div>
-                </a>
-                <div class="our__product-overlay-container">
-                        <div class="our__product-overlay-star">
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <div class="our__product-overlay-icon">
-                            <a href="#" class="our__product-overlay-link"><i class="our__product-icon far fa-eye"></i></a>
-                            <a href="#" class="our__product-overlay-link"><i class="our__product-icon fas fa-cart-plus"></i></a>
-                            <a href="#" class="our__product-overlay-link"><i class="our__product-icon fas fa-sync-alt"></i></a>
-                        </div>
-                        <a href="$" class="our__product-overlay-add">
-                            <div class="our__product-overlay-add-icon"><i class="fas fa-cart-arrow-down"></i></div>
-                            <p class="our__product-overlay-add-text">ADD TO CART</p>
-                        </a> 
-                </div>
-            </div>
-         </div>
-        `
-    });
-    productMeat.innerHTML = html.join(' ');
-}
-function flyItemCartAndAddCart()
-{
-    $(document).on('click','.our__product-overlay-add-text',function(e){
-        e.preventDefault(); 
-        if($(this).hasClass('disable'))
-        {   
-            return false;
-        }
-        $(document).find('.our__product-overlay-add-text').addClass('disable');
-        var parent = $(this).parents('.our__product-item');
-        var src = parent.find('.our__product-item-img').attr('src');
-        //web
-        var cartItem = $('.web-cart');
-        // mobile
-        //  //handle add item cart 
-        // 
-        var showTotalPrice = $(document).find(".show-total-price");
-        //header__nav-cart-info
-        var headerCart = $(document).find(".header__nav-cart-info");
-        var countIn; // bien dem gio hang;
-        var cartList = $(document).find(".web-cart-show");
-        var nameProduct  = parent.find('.our__product-item-text').text();
-        var priceProuct =  parent.find('.our__product-item-price-main').text();   
-        var img = $('<img />',
-             { class: 'my-img-cart',
-               src: src,
-             });
-             img.appendTo($('body')).css({
-                 'top': parent.offset().top,
-                 'left':parent.offset().left + parent.width() - 50,
-             }) 
-        setTimeout(() => {
-            $(document).find('.my-img-cart').css({
-                'top': cartItem.offset().top,
-                'left':cartItem.offset().left - cartItem.width(),
-            });
-        }, 500);
-        setTimeout(() => {
-            countIn = $(document).find('.header__nav-cart-text').data('count')+1;
-            $(document).find('.my-img-cart').remove();
-            $(document).find('.header__nav-cart-text').text(countIn).data('count',countIn);
-            $(document).find('.our__product-overlay-add-text').removeClass('disable');
-        }, 1500);
-        // handle add cart
-        var html = `<li class="header__nav-cart-item">                      
-                        <div class="img-item-cart">
-                            <img class="img-detail-item" src="${src}" alt="item-img">
-                        </div>
-                        <div class="name-item-cart">
-                            ${nameProduct}
-                        </div>
-                        <div class="price-item-cart">
-                        <span class="price-item-cart-detail">${priceProuct}</span><span>đ</span>
-                        </div>
-                        <button class="price-item-cart-btn">
-                            Xóa
-                        </button>
-                     </li>`;
-        cartList.append(html);
-        // handle delete , price all of cart
-        var itemCartList = $(cartList).find(".header__nav-cart-item");
-        var buttonDeleteItemCart = $(itemCartList).find("button");
-        var priceEveryProduct = $(itemCartList).find(".price-item-cart-detail");
-        var showAllPriceText;
-        var allPrice;
-        // remove product in cart  
-
-        buttonDeleteItemCart.each(function(index,value){
-            value.onclick=function()
+             </div>
+            `
+        });
+        root.innerHTML = html.join(' ');
+    },
+    handleRender(){
+        btnMeat.addEventListener("click",(e)=>{
+            this.renderItems(itemMeats,productMeat);
+            btnMeat.classList.add("active");
+            btnVegetable.classList.remove("active");
+            isVegetable.classList.remove("active");
+            isMeat.classList.add("active");
+        });
+        btnVegetable.addEventListener("click",(e)=>{
+            this.renderItems(itemVegetables,productVegetable);
+            btnMeat.classList.remove("active");
+            btnVegetable.classList.add("active");
+            isVegetable.classList.add("active");
+            isMeat.classList.remove("active");
+        });
+    },
+    handleAnimationFlyAndAddToCart(){
+        productBody.addEventListener("click",(e)=>{
+            const btnAddProduct = e.target.closest(".our__product-overlay-add-text");
+            if(btnAddProduct)
             {
-                $(this).parents(".header__nav-cart-item").remove();
-                priceEveryProduct = $(document).find(".web-cart-show").find(".header__nav-cart-item").find(".price-item-cart-detail");
-                countIn = $(document).find('.header__nav-cart-text').data('count')-1;
-                $(document).find('.header__nav-cart-text').text(countIn).data('count',countIn);
-                showPriceAll();
+                const parent = btnAddProduct.parentNode;
+                const parents = parent.parentNode;
+                const parentss = parents.parentNode; //  Node parent all
+                // check has class to countineu click
+                if(parentss.classList.contains("active")){
+                    return false;
+                }
+
+                // get text to show cart
+                const imgEl = parentss.querySelector(".our__product-item-img");
+                const nameEl = parentss.querySelector(".our__product-item-text"); // chilldren
+                const priceEl = parentss.querySelector(".our__product-item-price-main"); //children
+                // const priceElLow = parentss.querySelector(".our__product-item-price-low");//children
+                if(imgEl)
+                {
+                    //get all items
+                    const allItemProduct = $$(".our__product-item");
+                    allItemProduct.forEach((iteamProduct)=>{
+                        iteamProduct.classList.add("active");
+                    })
+
+                    const getSrc = imgEl.src;
+                    const getName = nameEl.textContent;
+                    const getPrice = priceEl.textContent;
+                    // const getPriceLow = priceElLow.textContent;
+                    const imgCreate = document.createElement('img');
+                    imgCreate.classList.add("my-img-cart");
+                    imgCreate.src = `${getSrc}`
+                    imgCreate.style.top =parentss.offsetTop + productBody.offsetTop +'px';
+                    imgCreate.style.left = parentss.offsetLeft + 'px';
+                    // console.log(imgCreate);
+                    body.appendChild(imgCreate);
+                    setTimeout(() => {
+                        const findImg = $('.my-img-cart');
+                        if(findImg){
+                            findImg.style.top = cart.offsetTop + takeHeight + 'px';
+                            findImg.style.left = cart.offsetLeft + 'px';
+                        }
+                    }, 300);
+                    // handle add cart
+                    setTimeout(() => {
+                        const findImgRM = $('.my-img-cart');
+                        let countIndex = Number(count.dataset.count) + 1;
+                        count.dataset.count = countIndex;
+                        count.innerHTML = countIndex;
+                        findImgRM.remove();
+                        // remove all active
+                        allItemProduct.forEach((iteamProduct)=>{
+                            iteamProduct.classList.remove("active");
+                        });
+                        // creaete product and add to cart
+                       
+                    }, 1000);
+                    const itemProduct = document.createElement("li");
+                    itemProduct.classList.add("header__nav-cart-item");
+                    itemProduct.innerHTML= `<div class="img-item-cart">
+                                                <img class="img-detail-item" src="${getSrc}" alt="item-img">
+                                            </div>
+                                            <div class="name-item-cart">
+                                                ${getName}
+                                            </div>
+                                            <div class="price-item-cart">
+                                            <span class="price-item-cart-detail">${getPrice}</span><span>đ</span>
+                                            </div>
+                                            <button class="price-item-cart-btn">
+                                                Xóa
+                                            </button>`
+                    cartList.appendChild(itemProduct);
+                }
+                const allProductToPrice = $$(".header__nav-cart-item");
+                if(allProductToPrice)
+                {
+                    this.totolPriceCart(allProductToPrice);
+                }
             }
+
         })
-        //handle show price total
-        function showPriceAll()
-        {
-            allPrice=0;
-            priceEveryProduct.each(function(index, value) {
-                var price = parseFloat($(value).text());
-                return allPrice = allPrice + price;
-              });
-            showAllPriceText = allPrice!== 0 ? `<span><span>Total price :</span> ${(allPrice*1000).toLocaleString()}<span>đ</span></span>`:""
-            $(showTotalPrice).html(showAllPriceText);  
+    },
+    getHeight(){
+        document.addEventListener("scroll",function(){
+            takeHeight = document.documentElement.scrollTop || window.scrollY ;
+        })
+    },
+    totolPriceCart(allProductToPrice){
+        const dataPrice = [];
+        allProductToPrice.forEach((product)=>{
+            const priceItem = Number(product.querySelector(".price-item-cart-detail").textContent);
+            dataPrice.push(priceItem);
+        })
+        const priceTotal = dataPrice.reduce((acc,curr)=>{
+            return acc+curr;
+        },0);
+        const totalEl = document.createElement("span");
+        totalEl.innerHTML = `${priceTotal>0?`<span>Total Price: ${(priceTotal*1000).toLocaleString()}</span><span>đ</span>`:""}`
+        showTotalPrice.innerHTML = "";
+        showTotalPrice.appendChild(totalEl);
+        if(priceTotal==0){
+            seenterCart.style.display = 'none'; 
         }
-        showPriceAll();  
-    });
-}      
-renderVegetabe();
-renderMeat();
-handleBodyImfomation();
-handleTime();
-handleHeaderLogin();
-getDataUserFromRegister();
-handleLoginUserData();
-lineHeader();
-handleChooseFood();
-handleBackgroundImage();
-flyItemCartAndAddCart();
-
-
-
-
-
-
+    },
+    handleRemoveItem(){
+        cartList.addEventListener("click",(e)=>{
+            const btnRemoveItemCart = e.target.closest(".price-item-cart-btn");
+            if(btnRemoveItemCart){
+                const getParent = btnRemoveItemCart.parentNode;
+                getParent.remove();
+                const getCount = Number(count.dataset.count) - 1;
+                count.dataset.count = getCount;
+                count.innerHTML = getCount;
+                const allProductToPrice = $$(".header__nav-cart-item");
+                this.totolPriceCart(allProductToPrice);
+            }
+        });
+    },
+    handleShowCart(){
+        let isShow = false;
+        cart.addEventListener("click",function(e){
+                const giohang = e.target.parentNode.parentNode ;
+                const ulList = e.target.closest(".header__nav-cart-info")
+                if(giohang===this && !ulList)
+                {
+                    isShow = !isShow;
+                    if(isShow){
+                        seenterCart.style.display = 'block';
+                    }
+                    else{
+                        seenterCart.style.display = 'none'; 
+                    }            
+                }
+        })
+    },
+    start(){
+        this.handleChangeBG();
+        this.lineHeader();
+        this.handleShow();
+        this.handleResAndLog();
+        this.handleTime();
+        this.renderItems(itemVegetables,productVegetable);
+        this.renderItems(itemMeats,productMeat);
+        this.handleRender();
+        this.handleTabIcon();
+        this.handleAnimationFlyAndAddToCart();
+        this.getHeight();
+        this.handleRemoveItem();
+        this.handleShowCart();
+    }
+}
+app.start();
